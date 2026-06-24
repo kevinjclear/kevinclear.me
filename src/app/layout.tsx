@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -55,7 +56,16 @@ export default function RootLayout({
       lang="en"
       className={`dark ${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">{children}</body>
+      <body className="min-h-full bg-background text-foreground">
+        {children}
+        {/* Umami — privacy-friendly, cookieless analytics, self-hosted on this VM.
+            Same-origin /script.js → posts hits to /api/send (both proxied to local Umami). */}
+        <Script
+          src="https://kevinclear.me/script.js"
+          data-website-id="2fc74a74-45bf-494b-9983-756ab6282bf5"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
