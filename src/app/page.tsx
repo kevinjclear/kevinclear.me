@@ -465,6 +465,7 @@ export default function Home() {
           <div className="mc-rise mt-9 flex flex-wrap items-center gap-3" style={{ animationDelay: "380ms" }}>
             <a
               href="/kevin-clear-resume.pdf"
+              data-umami-event="resume-download"
               className="group inline-flex items-center gap-2 rounded-md bg-signal px-5 py-3 font-mono text-[12px] font-medium uppercase tracking-[0.16em] text-signal-foreground transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none"
             >
               <Download className="h-4 w-4" />
@@ -472,6 +473,7 @@ export default function Home() {
             </a>
             <a
               href="mailto:kevin@kevinclear.me"
+              data-umami-event="contact-email"
               className="group inline-flex items-center gap-2 rounded-md border border-border bg-card/40 px-5 py-3 font-mono text-[12px] font-medium uppercase tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors duration-200 hover:border-signal/50 hover:text-signal"
             >
               <Mail className="h-4 w-4" />
@@ -479,10 +481,10 @@ export default function Home() {
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none" />
             </a>
             <div className="ml-1 flex items-center gap-1">
-              <a href="https://github.com/kevinjclear" target="_blank" rel="noreferrer" aria-label="GitHub" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-foreground">
+              <a href="https://github.com/kevinjclear" target="_blank" rel="noreferrer" aria-label="GitHub" data-umami-event="github" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-foreground">
                 <GithubGlyph className="h-4 w-4" />
               </a>
-              <a href="https://linkedin.com/in/kevinjclear" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-foreground">
+              <a href="https://linkedin.com/in/kevinjclear" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-umami-event="linkedin" className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-foreground">
                 <LinkedinGlyph className="h-4 w-4" />
               </a>
             </div>
@@ -575,7 +577,9 @@ export default function Home() {
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {PROJECTS.map((p) => {
               const Wrapper = p.href ? "a" : "div";
-              const wrapperProps = p.href ? { href: p.href, target: "_blank", rel: "noreferrer" } : {};
+              const wrapperProps = p.href
+                ? { href: p.href, target: "_blank", rel: "noreferrer", "data-umami-event": "project-click", "data-umami-event-name": p.name }
+                : {};
               return (
                 <Wrapper
                   key={p.name}
@@ -628,6 +632,7 @@ export default function Home() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="mailto:kevin@kevinclear.me"
+                  data-umami-event="contact-email"
                   className="inline-flex items-center gap-2 rounded-md bg-signal px-5 py-3 font-mono text-[12px] font-medium uppercase tracking-[0.16em] text-signal-foreground transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none"
                 >
                   <Mail className="h-4 w-4" />
@@ -635,6 +640,7 @@ export default function Home() {
                 </a>
                 <a
                   href="/kevin-clear-resume.pdf"
+                  data-umami-event="resume-download"
                   className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 font-mono text-[12px] font-medium uppercase tracking-[0.16em] text-foreground transition-colors duration-200 hover:border-signal/50 hover:text-signal"
                 >
                   <Download className="h-4 w-4" />
@@ -654,13 +660,13 @@ export default function Home() {
             Self-hosted on my homelab · Austin, TX
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/kevinjclear" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+            <a href="https://github.com/kevinjclear" target="_blank" rel="noreferrer" data-umami-event="github" className="transition-colors hover:text-foreground">
               GitHub
             </a>
-            <a href="https://linkedin.com/in/kevinjclear" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+            <a href="https://linkedin.com/in/kevinjclear" target="_blank" rel="noreferrer" data-umami-event="linkedin" className="transition-colors hover:text-foreground">
               LinkedIn
             </a>
-            <a href="mailto:kevin@kevinclear.me" className="transition-colors hover:text-foreground">
+            <a href="mailto:kevin@kevinclear.me" data-umami-event="contact-email" className="transition-colors hover:text-foreground">
               Email
             </a>
           </div>
